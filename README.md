@@ -1,8 +1,13 @@
 # Basic Camera App using React Native
 
-This app takes photos from your cameras and save them into another page (image library), separate from the normal camera roll.
+This app takes photos from your cameras and display them into an image library page. <br/>
+The photos are saved into a folder for this app in your device's file system assigned by Expo, separate from the normal camera roll.
+
+You can also delete photos from the image library.
+
+### Used Technologies
+- React, React Native, Expo, and React Native Elements 
 
 ### Next Steps
-- Functionality to select and delete individual photos from the image library.
-- Better siziing of the photos in the image library (styling)
-- Cropping and zooming of the images if necessary.
+- Add additional functionalities such as flash.
+- Try with Redux

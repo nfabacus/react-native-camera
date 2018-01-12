@@ -9,7 +9,7 @@ export default class CameraExample extends Component {
   state = {
     hasCameraPermission: null,
     type: Camera.Constants.Type.back,
-    showImageAlbum: false
+    showImageAlbum: true
   };
 
   async componentWillMount() {
@@ -34,18 +34,11 @@ export default class CameraExample extends Component {
   takePicture = async ()=>{
     if (this.camera) {
       const photoId = uuidv1()
-      console.log("snap!!!", photoId)
-      
+      Vibration.vibrate();
       this.camera.takePictureAsync().then(data => {
-        console.log("photo data>>>", data)
-        console.log("FileSystem.documentDirectory>>>", FileSystem.documentDirectory)
         FileSystem.moveAsync({
           from: data.uri,
           to: `${FileSystem.documentDirectory}photos/Photo_${photoId}.jpg`,
-        }).then(() => {
-          Vibration.vibrate();
-          console.log("success!!!!")
-          
         }).catch((err)=>{
           console.log("something went wrong!!", err)
         });
